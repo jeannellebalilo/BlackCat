@@ -56,4 +56,8 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
         }
     }
+
+    private void OnFire() {
+        animator.SetTrigger("scratchAttack");
+    }
 }

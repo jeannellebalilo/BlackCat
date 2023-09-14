@@ -6,6 +6,7 @@ public class PlayerDeath : MonoBehaviour
 {
     public GameObject respawnPoint;
     public GameObject Player;
+    public GameObject Enemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,11 @@ public class PlayerDeath : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player")) {
-            Player.transform.position = respawnPoint.transform.position;
+            if (Input.GetKeyDown(KeyCode.F)) {
+                Enemy.SetActive(false);
+            } else {
+                Player.transform.position = respawnPoint.transform.position;
+            }
         }
     }
 }
